@@ -13,13 +13,15 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { SongListComponent } from './song/song-list/song-list.component'; 
+import { SongListComponent } from './song/song-list/song-list.component';
+import { SongViewComponent } from './song/song-view/song-view.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SongListComponent
+    SongListComponent,
+    SongViewComponent
   ],
   imports: [
     BrowserModule,
