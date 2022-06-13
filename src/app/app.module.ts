@@ -13,6 +13,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card'; 
 import { SongListComponent } from './song/song-list/song-list.component';
 import { SongViewComponent } from './song/song-view/song-view.component'; 
 
@@ -33,7 +34,8 @@ import { SongViewComponent } from './song/song-view/song-view.component';
     LayoutModule,
     MatButtonModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
