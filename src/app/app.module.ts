@@ -15,14 +15,16 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card'; 
 import { SongListComponent } from './song/song-list/song-list.component';
-import { SongViewComponent } from './song/song-view/song-view.component'; 
+import { SongViewComponent } from './song/song-view/song-view.component';
+import { SongEditComponent } from './song/song-edit/song-edit.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SongListComponent,
-    SongViewComponent
+    SongViewComponent,
+    SongEditComponent
   ],
   imports: [
     BrowserModule,

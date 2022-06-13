@@ -1,5 +1,5 @@
 <h2>Songs</h2>
-<button mat-raised-button color="accent">New song</button>
+<a mat-raised-button color="accent" href="/songs/edit/0">New song</a>
 <div fxLayout="column" fxLayoutGap="20px">
     <mat-card *ngFor="let song of songs">
         <mat-card-title  routerLink="/songs/{{ song.id}}">{{ song.title }}</mat-card-title>
