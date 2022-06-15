@@ -1,8 +1,6 @@
-export class Song {
-    constructor(
-        public id: number,
-        public title: string,
-        public by: string,
-        public bpm?: number    
-    ) {}
+export interface Song {
+    id: number;
+    title: string;
+    by: string;
+    bpm?: number;
 }

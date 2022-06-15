@@ -13,10 +13,14 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import {MatCardModule} from '@angular/material/card'; 
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';  
+import {MatFormFieldModule} from '@angular/material/form-field'; 
 import { SongListComponent } from './song/song-list/song-list.component';
 import { SongViewComponent } from './song/song-view/song-view.component';
 import { SongEditComponent } from './song/song-edit/song-edit.component'; 
+import { ReactiveFormsModule } from '@angular/forms';
+import { SongService } from './services/song.service';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,7 @@ import { SongEditComponent } from './song/song-edit/song-edit.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     FlexLayoutModule,
     MatToolbarModule,
     MatIconModule,
@@ -37,7 +42,9 @@ import { SongEditComponent } from './song/song-edit/song-edit.component';
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

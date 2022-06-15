@@ -1,0 +1,15 @@
+<form [formGroup]="songForm" fxLayout="column" fxLayoutGap="8px" (ngSubmit)="saveSong()">
+    <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput type="text" formControlName="title">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>By group</mat-label>
+        <input matInput type="text" formControlName="by">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>BPM</mat-label>
+        <input matInput type="number" formControlName="bpm">
+    </mat-form-field>
+    <button mat-raised-button color="accent">Save</button>
+</form>
