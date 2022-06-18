@@ -5,7 +5,17 @@ import { Song } from '../song/song.model';
   providedIn: 'root'
 })
 export class SongService {
-  private _songs: Song[] = [{ id: 1, title: 'Vondelpark', by: 'Helder Reis', bpm: 128 }, { id: 2, title: 'Comfortably Numb', by: 'Pink Floyd' }];
+  private _songs: Song[] = [
+    { id: 1, title: 'Vondelpark', by: 'Helder Reis', bpm: 128, key: 'Gm', structure: [
+      { name: 'Intro', phrases: [
+        { id: 1, chords: ['Dm', 'Gm'] }
+      ]},
+      { name: 'Verse', phrases: [
+        { id: 1, chords: ['Dm', 'Gm', 'A', 'Dm'] }
+      ]}
+    ] }, 
+    { id: 2, title: 'Comfortably Numb', by: 'Pink Floyd' }
+  ];
   
   constructor() { }
   
@@ -24,10 +34,9 @@ export class SongService {
       song.id = maxId + 1;
       this._songs.push(song);
     } else {
+      // update existing one
       const idx = this._songs.findIndex(s => s.id == song.id);
       this._songs.splice(idx, 1, song);
-      console.log(this._songs);
-      
     }
     
   }

@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { SongService } from 'src/app/services/song.service';
 import { Song } from '../song.model';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-song-edit',
@@ -16,6 +17,7 @@ export class SongEditComponent implements OnInit {
     by: new FormControl('',  [Validators.required]),
     bpm: new FormControl('')
   });
+  public newSectionName: string;
   
   constructor(private _songService: SongService, private _route: ActivatedRoute) {
     
@@ -46,5 +48,15 @@ export class SongEditComponent implements OnInit {
     this.song.by = this.songForm.get('by').value;
     this.song.bpm = this.songForm.get('bpm').value;
     this._songService.saveSong(this.song);
+  }
+  
+  public drop(event: any) {
+    moveItemInArray(this.song.structure, event.previousIndex, event.currentIndex);
+  }
+
+  public addSection() {
+    this.song.structure.push({ name: this.newSectionName, phrases: [] });
+    this.newSectionName = '';
+    
   }
 }

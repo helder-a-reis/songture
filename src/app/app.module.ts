@@ -15,11 +15,16 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';  
+import {MatTabsModule} from '@angular/material/tabs'; 
+import {MatDividerModule} from '@angular/material/divider'; 
+import {DragDropModule} from '@angular/cdk/drag-drop'; 
+
 import {MatFormFieldModule} from '@angular/material/form-field'; 
 import { SongListComponent } from './song/song-list/song-list.component';
 import { SongViewComponent } from './song/song-view/song-view.component';
 import { SongEditComponent } from './song/song-edit/song-edit.component'; 
-import { ReactiveFormsModule } from '@angular/forms';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SongService } from './services/song.service';
 
 @NgModule({
@@ -35,6 +40,7 @@ import { SongService } from './services/song.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    FormsModule,
     FlexLayoutModule,
     MatToolbarModule,
     MatIconModule,
@@ -44,7 +50,10 @@ import { SongService } from './services/song.service';
     MatListModule,
     MatCardModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTabsModule,
+    MatDividerModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

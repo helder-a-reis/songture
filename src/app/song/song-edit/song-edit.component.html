@@ -1,15 +1,44 @@
 <form [formGroup]="songForm" fxLayout="column" fxLayoutGap="8px" (ngSubmit)="saveSong()">
-    <mat-form-field appearance="outline">
-        <mat-label>Title</mat-label>
-        <input matInput type="text" formControlName="title">
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-        <mat-label>By group</mat-label>
-        <input matInput type="text" formControlName="by">
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-        <mat-label>BPM</mat-label>
-        <input matInput type="number" formControlName="bpm">
-    </mat-form-field>
+    <mat-tab-group animationDuration="10ms">
+        <mat-tab label="Info">
+            <div fxLayout="column" fxLayoutGap="8px">
+                <mat-form-field appearance="outline">
+                    <mat-label>Title</mat-label>
+                    <input matInput type="text" formControlName="title">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>By group</mat-label>
+                    <input matInput type="text" formControlName="by">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>BPM</mat-label>
+                    <input matInput type="number" formControlName="bpm">
+                </mat-form-field>
+            </div>
+        </mat-tab>
+        <mat-tab label="Structure">
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+                <div fxFlex>
+                    <div fxLayout="column">
+                        <h2>Sections</h2>
+                        <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+                            <div class="example-box" *ngFor="let section of song.structure" cdkDrag> {{ section.name }} </div>
+                        </div>
+                        <div fxLayout="row" fxLayoutAlign="start center">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Name</mat-label>
+                                <input matInput type="text" [(ngModel)]="newSectionName" [ngModelOptions]="{standalone: true}">
+                            </mat-form-field>
+                            <button mat-raised-button color="primary" (click)="addSection()">Add section</button>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div fxFlex>
+                    <h2 fxFlex>Phrases</h2>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
     <button mat-raised-button color="accent">Save</button>
 </form>
