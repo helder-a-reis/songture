@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { SectionName } from '../song/section.model';
 import { Song } from '../song/song.model';
 
 @Injectable({
@@ -7,10 +8,10 @@ import { Song } from '../song/song.model';
 export class SongService {
   private _songs: Song[] = [
     { id: 1, title: 'Vondelpark', by: 'Helder Reis', bpm: 128, key: 'Gm', structure: [
-      { name: 'Intro', phrases: [
+      { name: SectionName.Intro, phrases: [
         { id: 1, chords: ['Dm', 'Gm'] }
       ]},
-      { name: 'Verse', phrases: [
+      { name: SectionName.Verse, phrases: [
         { id: 1, chords: ['Dm', 'Gm', 'A', 'Dm'] }
       ]}
     ] }, 

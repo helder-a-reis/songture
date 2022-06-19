@@ -17,7 +17,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';  
 import {MatTabsModule} from '@angular/material/tabs'; 
 import {MatDividerModule} from '@angular/material/divider'; 
-import {DragDropModule} from '@angular/cdk/drag-drop'; 
+import {MatSelectModule} from '@angular/material/select'; 
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatExpansionModule} from '@angular/material/expansion'; 
 
 import {MatFormFieldModule} from '@angular/material/form-field'; 
 import { SongListComponent } from './song/song-list/song-list.component';
@@ -53,7 +55,9 @@ import { SongService } from './services/song.service';
     MatFormFieldModule,
     MatTabsModule,
     MatDividerModule,
-    DragDropModule
+    DragDropModule,
+    MatSelectModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

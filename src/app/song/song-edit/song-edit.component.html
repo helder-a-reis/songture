@@ -21,13 +21,29 @@
                 <div fxFlex>
                     <div fxLayout="column">
                         <h2>Sections</h2>
-                        <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-                            <div class="example-box" *ngFor="let section of song.structure" cdkDrag> {{ section.name }} </div>
+                        <div cdkDropList (cdkDropListDropped)="drop($event)">
+                            <mat-accordion class="example-headers-align" multi>
+                                <div *ngFor="let section of song.structure" cdkDrag>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                {{ section.name }} 
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <mat-list>
+                                            <mat-list-item *ngFor="let phrase of section.phrases">{{ phrase.chords }}</mat-list-item>
+                                        </mat-list>
+                                    </mat-expansion-panel>
+                                    
+                                </div>
+                            </mat-accordion>
                         </div>
                         <div fxLayout="row" fxLayoutAlign="start center">
                             <mat-form-field appearance="outline">
                                 <mat-label>Name</mat-label>
-                                <input matInput type="text" [(ngModel)]="newSectionName" [ngModelOptions]="{standalone: true}">
+                                <mat-select [(value)]="newSectionName">
+                                    <mat-option *ngFor="let section of sectionKeys" [value]="section">{{ sections[section] }}</mat-option>
+                                </mat-select>
                             </mat-form-field>
                             <button mat-raised-button color="primary" (click)="addSection()">Add section</button>
                         </div>

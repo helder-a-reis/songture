@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { SongService } from 'src/app/services/song.service';
 import { Song } from '../song.model';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import { SectionName } from '../section.model';
+
 
 @Component({
   selector: 'app-song-edit',
@@ -17,7 +19,9 @@ export class SongEditComponent implements OnInit {
     by: new FormControl('',  [Validators.required]),
     bpm: new FormControl('')
   });
-  public newSectionName: string;
+  public sections = SectionName;
+  public sectionKeys = Object.keys(SectionName);
+  public newSectionName: SectionName;
   
   constructor(private _songService: SongService, private _route: ActivatedRoute) {
     
@@ -56,7 +60,8 @@ export class SongEditComponent implements OnInit {
 
   public addSection() {
     this.song.structure.push({ name: this.newSectionName, phrases: [] });
-    this.newSectionName = '';
+    this.newSectionName = undefined;
+    console.log(this.song);
     
   }
 }
